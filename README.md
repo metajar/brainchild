@@ -21,7 +21,7 @@ Five sheets, one sitting:
 | **PRD** | A full product requirements doc — goals, non-goals, personas, MUST/SHOULD/COULD, metrics, risks. |
 | **Architecture** | Stack, components, ASCII diagram, data model, API surface, tradeoffs. Opinionated on purpose. |
 | **Interview** | Five questions the design cannot answer for you. Your answers fold back into both docs. |
-| **Context kit** | Nine files: a small always-loaded anchor plus a routed `.mex/` wiki for coding agents. |
+| **Context kit** | A small always-loaded anchor plus a routed `.mex/` wiki. Agents must log completed work and keep those files current. |
 
 The kit is written for agents, not humans. Declarative. High signal per token. No `[insert here]`.
 
@@ -40,9 +40,12 @@ CLAUDE.md                  (or .cursorrules / AGENTS.md / …)
     setup.md
     decisions.md
     conventions.md
+    changelog.md
   patterns/
     INDEX.md
 ```
+
+The kit tells agents that a task is not finished until context is current: append `.mex/context/changelog.md`, then update any architecture, stack, setup, decisions, conventions, or patterns the work made stale. Major tasks (features, API or data-model changes, infra) always require write-back.
 
 Download the install script, run it from your project root, and the files land in place. Optionally follow with `npx mex-agent setup` if you want graph + drift checks on top.
 
